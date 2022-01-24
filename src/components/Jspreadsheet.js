@@ -1,8 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
 import jspreadsheet from "jspreadsheet-ce";
 import './jexcel.css'
-import { colorPicker } from "./utils";
+import { colorPicker, humanReadableMonths, setColumns, setDataTable, setMonths, sortNamesResource } from "./utils";
 import styled from "styled-components";
+import { activity_employee_period } from "./data";
 
 export default function Jspreadsheet(props) {
     const { options } = props
@@ -18,6 +19,8 @@ export default function Jspreadsheet(props) {
     const optionsCustom = {
         ...options,
         updateTable: onUpdate,
+        data: activity_employee_period.sort(sortNamesResource).map(v => { return setDataTable("2020-10-12", "2022-04-12", v.ActivityEmployee.resource_plan) }),
+        columns: setColumns("2020-10-12", "2022-04-12"),
     }
 
     function valuesArray(length, value) {
@@ -44,14 +47,16 @@ export default function Jspreadsheet(props) {
             inputSheet.hideIndex();
             setNumOfRows(inputSheet.getColumnData([0]).length)
             setNumOfColumns(inputSheet.getHeaders().split(',').length)
+            setMonths("2020-10-12", "2022-09-12")
+            console.log(setMonths("2022-1-12", "2022-11-12").map(v => humanReadableMonths(v)))
         }
     }, [inputSheet, optionsCustom]);
 
     const addRow = () => {
         jRef.current.jexcel.insertRow();
-        const nextRow = numOfRows
-        setNumOfRows(nextRow +1)
-        inputSheet.setRowData(nextRow, valuesArray(numOfColumns, '0'))
+        const currentRowNum = numOfRows
+        setNumOfRows(currentRowNum + 1)
+        inputSheet.setRowData(currentRowNum, valuesArray(numOfColumns, '0'))
     };
 
     const handleSubmit = () => {
@@ -60,24 +65,35 @@ export default function Jspreadsheet(props) {
 
     return (
         <>
-        <Container>
-            <ContainerUni>
-                <input type="button" onClick={addRow} value="Add new row" />
-                { valuesArray(numOfRows, 0).map((item, index) => {
-                    return(<UniInput key={index}><input id={index} onChange={funRow} type='number' min={0} max={100} step={5} /></UniInput>)}
-                )
-                }
-            </ContainerUni>
-            <TableContainer ref={jRef} />
-        </Container>
-        <input type="button" onClick={handleSubmit} value="Submit"/>
+            <Container>
+                <ContainerUni>
+                    <NamesContainer>
+                        {activity_employee_period.sort(sortNamesResource).map(v => {
+                            return (
+                                <Names>
+                                    {v.Employee.name}
+                                </Names>)
+                        })}
+                    </NamesContainer>
+                </ContainerUni>
+                <ContainerUni>
+                    <input type="button" onClick={addRow} value="Add new row" />
+                    {valuesArray(numOfRows, 0).map((item, index) => {
+                        return (<UniInput key={index}><input id={index} onChange={funRow} type='number' min={0} max={100} step={5} /></UniInput>)
+                    }
+                    )
+                    }
+                </ContainerUni>
+                <TableContainer ref={jRef} />
+            </Container>
+            <input type="button" onClick={handleSubmit} value="Submit" />
         </>
     );
 }
 
 const Container = styled.div`
     display: inline-grid;
-    grid-template-columns: 100px auto;
+    grid-template-columns: 170px 100px auto;
 `
 
 const ContainerUni = styled.div`
@@ -92,4 +108,12 @@ const TableContainer = styled.div`
 
 const UniInput = styled.div`
     padding-top: 5.25px;
+`
+
+const NamesContainer = styled.div`
+    padding-top: 25px;
+`
+
+const Names = styled.div`
+    padding-top: 8px;
 `
