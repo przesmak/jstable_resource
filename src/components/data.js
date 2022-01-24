@@ -17,7 +17,7 @@ export const activity_employee_period = [
         "employee_id": 54,
         "id": 115,
         "date_added": "2022-01-14T15:01:45.538369",
-        "user_id": "d01d4a34-2dc6-4d21-8108-d9ef49945898",
+        "user_id": "d",
         "resource_plan": [
           {
             "date": "10-2020",
@@ -119,7 +119,7 @@ export const activity_employee_period = [
         "employee_id": 38,
         "id": 113,
         "date_added": "2022-01-14T15:01:45.360706",
-        "user_id": "d01d4a34-2dc6-4d21-8108-d9ef49945898",
+        "user_id": "d",
         "resource_plan": [
           {
             "date": "10-2020",
@@ -200,14 +200,14 @@ export const activity_employee_period = [
         ]
       },
       "Employee": {
-        "name": "Bartosz Janicki",
+        "name": "Bartosz",
         "number": "10017209",
         "spid": "",
         "email": "",
         "department": "CPM",
         "departmentnumber": "1423",
         "location": "Krakow",
-        "user_id": "f9e5057d-c411-40ee-85ea-c5a56cbbe9ed",
+        "user_id": "f",
         "date_start": "2016-01-01",
         "date_end": null,
         "id": 38,
@@ -221,7 +221,7 @@ export const activity_employee_period = [
         "employee_id": 42,
         "id": 114,
         "date_added": "2022-01-14T15:01:45.445798",
-        "user_id": "d01d4a34-2dc6-4d21-8108-d9ef49945898",
+        "user_id": "d",
         "resource_plan": [
           {
             "date": "10-2020",
@@ -302,14 +302,14 @@ export const activity_employee_period = [
         ]
       },
       "Employee": {
-        "name": "Mateusz Bednarczyk",
-        "number": "10025474",
+        "name": "Mateusz",
+        "number": "7",
         "spid": "",
         "email": "",
         "department": "CPM",
         "departmentnumber": "1423",
         "location": "Krakow",
-        "user_id": "f9e5057d-c411-40ee-85ea-c5a56cbbe9ed",
+        "user_id": "w",
         "date_start": "2017-08-01",
         "date_end": null,
         "id": 42,
@@ -404,14 +404,14 @@ export const activity_employee_period = [
         ]
       },
       "Employee": {
-        "name": "Roger Rekdal Hage",
+        "name": "Roger",
         "number": "3222",
         "spid": "",
         "email": "",
         "department": "FP",
         "departmentnumber": "1429",
         "location": "Lysaker",
-        "user_id": "f9e5057d-c411-40ee-85ea-c5a56cbbe9ed",
+        "user_id": "w",
         "date_start": "2007-01-09",
         "date_end": null,
         "id": 119,
@@ -425,7 +425,7 @@ export const activity_employee_period = [
         "employee_id": 44,
         "id": 112,
         "date_added": "2022-01-14T15:01:45.275337",
-        "user_id": "d01d4a34-2dc6-4d21-8108-d9ef49945898",
+        "user_id": "w",
         "resource_plan": [
           {
             "date": "10-2020",
@@ -506,14 +506,14 @@ export const activity_employee_period = [
         ]
       },
       "Employee": {
-        "name": "Tomasz Buczek",
+        "name": "Tomasz",
         "number": "10013412",
         "spid": "",
         "email": "",
         "department": "CPM",
         "departmentnumber": "1423",
         "location": "Krakow",
-        "user_id": "f9e5057d-c411-40ee-85ea-c5a56cbbe9ed",
+        "user_id": "w",
         "date_start": "2014-01-01",
         "date_end": null,
         "id": 44,
